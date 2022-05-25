@@ -11,10 +11,16 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { UserlistComponent } from './userlist/userlist.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
+import { NodelistComponent } from './nodelist/nodelist.component';
+import { NodeProfileComponent } from './node-profile/node-profile.component';
 
 const appRoutes : Routes = [
   {path : "userList" , component:UserlistComponent},
-  {path : "userProfile/:id" , component:UserprofileComponent}
+  {path : "userProfile/:id" , component:UserprofileComponent},
+  {path : "nodeList" , component:NodelistComponent},
+  {path : "nodeProfile/:id" , component:NodeProfileComponent},
+
+
 ]
 
 @NgModule({
@@ -22,7 +28,9 @@ const appRoutes : Routes = [
     AppComponent,
     SidebarComponent,
     UserlistComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    NodelistComponent,
+    NodeProfileComponent
   ],
   imports: [
     BrowserModule,

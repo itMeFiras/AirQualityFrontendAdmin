@@ -1,6 +1,6 @@
 <div class="container pt-3"  style="display: flex;">
     <div style="width: 80%;"> 
-        <h3 class="custom-h3-mobile mb-0 pt-3" style="color: #ff7900;">Account</h3>
+        <h3 class="custom-h3-mobile mb-0 pt-3" style="color: #ff7900;">Node</h3>
 
         <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert" *ngIf="currDiv == 'nice'">
             <span class="alert-icon"><span class="visually-hidden">Failed</span></span>
@@ -12,49 +12,56 @@
             <div class="pt-4">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" aria-describedby="nameHelp"
-            [(ngModel)]="user.username" name="username"
+            [(ngModel)]="node.username" name="username"
                 #username="ngModel" required>
             </div>
 
             <div class="pt-4">
-                <label for="firstname" class="form-label">Firstname</label>
-                <input type="text" class="form-control" id="firstname" aria-describedby="firstnameHelp"
-                [(ngModel)]="user.firstname" name="firstname"
-                    #firstname="ngModel" required>
+                <label for="MAC" class="form-label">MAC</label>
+                <input type="text" class="form-control" id="MAC" aria-describedby="MACHelp"
+                [(ngModel)]="node.MAC" name="MAC"
+                    #MAC="ngModel" required>
             </div>
 
             <div class="pt-4">
-                <label for="lastname" class="form-label">Lastname</label>
-                <input type="text" class="form-control" id="lastname" aria-describedby="lastnameHelp"
-                [(ngModel)]="user.lastname" name="lastname"
-                    #lastname="ngModel" required>
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" aria-describedby="titleHelp"
+                [(ngModel)]="node.title" name="title"
+                    #title="ngModel" required>
             </div>
 
             <div class="pt-4">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                [(ngModel)]="user.email" name="email"
-                    #email="ngModel" required>
+                <label for="desc" class="form-label">Description</label>
+                <input type="text" class="form-control" id="desc" aria-describedby="descHelp"
+                [(ngModel)]="node.desc" name="desc"
+                    #desc="ngModel" required>
             </div>
 
             <div class="pt-4">
-                <label for="node" class="form-label">Nodes</label>
-                <input type="text" class="form-control" id="node" aria-describedby="nodeHelp"
-                [(ngModel)]="user.node" name="node"
-                    #node="ngModel" required>
+                <label for="lat" class="form-label">Lat</label>
+                <input type="text" class="form-control" id="lat" aria-describedby="latHelp"
+                [(ngModel)]="node.lat" name="lat"
+                    #lat="ngModel" required>
             </div>
 
             <div class="pt-4">
-                <label for="active" class="form-label">Account : &nbsp;</label>
-                <label for="active" class="form-label" *ngIf="user.active == 'active'" style="color:green"> Active</label>
-                <label for="active" class="form-label" *ngIf="user.active == 'inactive'" style="color:red"> Inactive</label>
+                <label for="long" class="form-label">Long</label>
+                <input type="text" class="form-control" id="long" aria-describedby="longHelp"
+                [(ngModel)]="node.long" name="long"
+                    #long="ngModel" required>
+            </div>
+
+            <div class="pt-4">
+                <label for="active" class="form-label">Show on the map : &nbsp;</label>
+                <label for="active" class="form-label" *ngIf="node.active == 'active'" style="color:green"> Yes</label>
+                <label for="active" class="form-label" *ngIf="node.active == 'inactive'" style="color:red"> No</label>
             </div>
         </form>
     </div>
 
     <!-- buttons section -->
     <div class="pt-5" style="width: 20%;padding-left: 50px;">
-        <button type="button" style="width:200px" class="btn btn-primary mb-3" (click)="edit('nice',user)">Edit Account</button>
+        <button type="button" style="width:200px" class="btn btn-primary mb-3" (click)="edit('nice',node)">Edit Account</button>
         <button type="button" style="width:200px" class="btn btn-secondary mb-3" (click)="toggelActive()">Activate / Deactivate</button>
         <button type="button" style="width:200px" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete Account</button><br>
     </div>
@@ -69,7 +76,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal"><span class="visually-hidden">Close</span></button>
         </div>
         <div class="modal-body">
-          Are you sure you want delete this profile ?
+          Are you sure you want delete this node ?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>

@@ -1,0 +1,22 @@
+<div class="container">
+    <h1 class="mt-5 mb-5" style="color:#ff7900;">Nodes List</h1>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">MAC</th>
+              <th scope="col">title</th>
+              <th scope="col">active</th>
+              <th scope="col">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let u of pins, let i = index">
+              <th scope="row">{{u.MAC}}</th>
+              <td>{{u.title}}</td>
+              <td>{{u.active}}</td>
+              <td><a style="color: blue;cursor: pointer;" routerLink="/nodeProfile/{{u._id}}"> See Details...</a></td>
+            </tr>
+          </tbody>
+        </table>
+  
+  </div>

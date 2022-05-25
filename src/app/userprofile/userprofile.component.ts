@@ -33,8 +33,12 @@ export class UserprofileComponent implements OnInit {
   edit(divVal: string,user : Users){
     this.usersService.editAccount(this.user._id,user).subscribe((data : any) =>{
       user = data;
-      if (data.message == "email is used"){
-        this.alert = "Username or email are used !"
+      if (data.message.slice(0,6) == "E11000"){
+        this.alert = "Username/email are used !"
+        this.currDiv = divVal;
+      }
+      else if (data.message.slice(0,22) == "User validation failed"){
+        this.alert = "All inputs need to be filled !"
         this.currDiv = divVal;
       }
       else if (data.message == "edit success"){
