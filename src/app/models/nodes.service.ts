@@ -32,6 +32,10 @@ export class NodesService {
     return this.HttpClient.get(this.url+'/list/'+id)
   }
 
+  createNode(data:Nodes ) : Observable<Nodes>{
+    return this.HttpClient.post<Nodes>(this.url+'/add',data)
+  }
+
   editNode(id : any, data:Nodes ) : Observable<Nodes>{
     return this.HttpClient.post<Nodes>(this.url+'/edit/'+id,data)
   }

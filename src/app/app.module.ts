@@ -13,12 +13,15 @@ import { UserlistComponent } from './userlist/userlist.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { NodelistComponent } from './nodelist/nodelist.component';
 import { NodeProfileComponent } from './node-profile/node-profile.component';
+import { AddnodeComponent } from './addnode/addnode.component';
 
 const appRoutes : Routes = [
   {path : "userList" , component:UserlistComponent},
   {path : "userProfile/:id" , component:UserprofileComponent},
   {path : "nodeList" , component:NodelistComponent},
   {path : "nodeProfile/:id" , component:NodeProfileComponent},
+  {path : "createNode" , component:AddnodeComponent},
+
 
 
 ]
@@ -30,7 +33,8 @@ const appRoutes : Routes = [
     UserlistComponent,
     UserprofileComponent,
     NodelistComponent,
-    NodeProfileComponent
+    NodeProfileComponent,
+    AddnodeComponent
   ],
   imports: [
     BrowserModule,
