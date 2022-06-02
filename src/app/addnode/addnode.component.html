@@ -1,6 +1,6 @@
 <div class="container pt-3"  style="display: flex;">
-    <div style="width: 80%;"> 
-        <h3 class="custom-h3-mobile mb-0 pt-3" style="color: #ff7900;">Create a new Node</h3>
+    <div style="width: 60%;"> 
+        <h1 class="custom-h3-mobile mb-0 pt-3" style="color: #ff7900;">Create a new Node</h1>
 
         <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert" *ngIf="currDiv == 'nice'">
             <span class="alert-icon"><span class="visually-hidden">Failed</span></span>
@@ -43,11 +43,14 @@
                     #long="ngModel" required>
             </div>
         </form>
+
+        <button type="submit" style="width:200px" class="btn btn-primary mt-5 mb-3" (click)="createNode('nice',node)">Create Node</button>
     </div>
 
-    <!-- buttons section -->
-    <div class="pt-5" style="width: 20%;padding-left: 50px;">
-        <button type="submit" style="width:200px" class="btn btn-primary mb-3" (click)="createNode('nice',node)">Create Node</button>
+    <!-- img section -->
+    <div class="pt-5" style="width: 40%;padding-left: 50px;">
+        <img src="../../assets/newpin.png"/>
     </div>
+    
 
 </div>  

@@ -1,0 +1,41 @@
+<div class="container" >
+    <h1 class="mt-5 mb-3" style="color:#ff7900;">Request List</h1>
+    <div class="main-carousel" style="display: flex;"> 
+        <div *ngFor="let u of requests | paginate: { itemsPerPage: 4, currentPage: p }">
+            <div class="carousel-cell">
+            <img *ngIf="u.accept == 'yes'" src="../../assets/yesman.jpg" style="height: 200px;">
+            <img *ngIf="u.accept == 'no'" src="../../assets/noman.jpg" style="height: 200px;">
+            <img *ngIf="u.accept == 'pending'" src="../../assets/pendingman.jpg" style="height: 200px;">
+            <div class="card-inner"><h2>{{u.title}}</h2>
+            <p>{{u.username}} <br> 
+                {{u.email}}</p>
+            
+            <p><b>Mac address : : </b> {{u.MAC}} <br>
+               <b>location </b>{{u.location}} <br>
+               <b>( </b>{{u.lat}} <b>;</b> {{u.long}} <b>)</b>
+            </p>
+            <p style="max-height:80px;height:80px;overflow: auto;"><b>Description : </b> {{u.desc}}</p>
+            
+                <a class="btn" style="background-color: green;" (click)="approveRequest(u)">Yes</a>
+                <a class="btn" style="margin-left: 20px;" (click)="denyRequest(u)">No</a></div>
+
+                <!-- <div>
+                    <div class="yes-no-radio-container">
+                      <div class="radio-btns">
+                        <span class="radio-btns-option">
+                          <input type="radio" name={{u._id}} value="yes" id="radio-yes"><label class="radio-label" for="radio-yes">Yes</label>
+                        </span>
+                        <span class="radio-btns-option">
+                          <input type="radio" name={{u._id}} value="no" id="radio-no"><label class="radio-label" for="radio-no" >No</label>
+                        </span>
+                      </div>
+                    </div>
+                    
+                  </div> -->
+
+
+            </div>
+        </div>
+    </div>
+    <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+</div>   

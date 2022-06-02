@@ -23,7 +23,7 @@ export class NodesService {
 
   constructor(private HttpClient: HttpClient) { }
 
-  //pins services
+  //pins service
   getPinsList(){
        return this.HttpClient.get(this.url+'/list')
   }
@@ -46,5 +46,18 @@ export class NodesService {
 
   toggelActive(id : any) : Observable<Nodes>{
     return this.HttpClient.post<Nodes>(this.url+'/toggelActive/'+id,"")
+  }
+
+  //request service
+  getRequestList(){
+    return this.HttpClient.get(this.url+'/request')
+  }
+
+  approveRequest(id:any){
+    return this.HttpClient.post(this.url+'/request/approve/'+id,"")
+  }
+
+  denyRequest(id:any){
+    return this.HttpClient.post(this.url+'/request/deny/'+id,"")
   }
 }

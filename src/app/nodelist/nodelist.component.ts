@@ -9,6 +9,7 @@ import { NodesService } from '../models/nodes.service';
 })
 export class NodelistComponent implements OnInit {
   pins: any 
+  p: number = 1;
 
   constructor(private NodesService : NodesService) { }
 

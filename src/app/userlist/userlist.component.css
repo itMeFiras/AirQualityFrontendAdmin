@@ -1,0 +1,9 @@
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background: #ff7900;
+  }
+
+  .my-pagination ::ng-deep .ngx-pagination li{
+    font-family:HelvNeueOrange;
+    letter-spacing:-0.1px;
+    line-height:18px;
+}

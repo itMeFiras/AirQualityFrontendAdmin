@@ -8,6 +8,7 @@ import { UsersService } from '../models/users.service';
 })
 export class UserlistComponent implements OnInit {
   user:any
+  p: number = 1;
 
   constructor(private UsersService:UsersService) { }
 

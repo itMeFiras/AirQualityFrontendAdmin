@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes  } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +15,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { NodelistComponent } from './nodelist/nodelist.component';
 import { NodeProfileComponent } from './node-profile/node-profile.component';
 import { AddnodeComponent } from './addnode/addnode.component';
+import { RequestListComponent } from './request-list/request-list.component';
 
 const appRoutes : Routes = [
   {path : "userList" , component:UserlistComponent},
@@ -21,6 +23,7 @@ const appRoutes : Routes = [
   {path : "nodeList" , component:NodelistComponent},
   {path : "nodeProfile/:id" , component:NodeProfileComponent},
   {path : "createNode" , component:AddnodeComponent},
+  {path : "requestList" , component:RequestListComponent},
 
 
 
@@ -34,7 +37,8 @@ const appRoutes : Routes = [
     UserprofileComponent,
     NodelistComponent,
     NodeProfileComponent,
-    AddnodeComponent
+    AddnodeComponent,
+    RequestListComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ const appRoutes : Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
