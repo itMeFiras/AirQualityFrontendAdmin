@@ -32,8 +32,12 @@ export class NodesService {
     return this.HttpClient.get(this.url+'/list/'+id)
   }
 
-  createNode(data:Nodes ) : Observable<Nodes>{
-    return this.HttpClient.post<Nodes>(this.url+'/add',data)
+  createNode(data:Nodes,auth_token: any) : Observable<Nodes>{
+    const headers  = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    })
+    return this.HttpClient.post<Nodes>(this.url+'/add',data,{ headers: headers  })
   }
 
   editNode(id : any, data:Nodes ) : Observable<Nodes>{
@@ -59,5 +63,9 @@ export class NodesService {
 
   denyRequest(id:any){
     return this.HttpClient.post(this.url+'/request/deny/'+id,"")
+  }
+
+  deleteRequest(id : any){
+    return this.HttpClient.delete(this.url+'/request/delete/'+id)
   }
 }

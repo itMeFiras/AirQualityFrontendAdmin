@@ -10,6 +10,7 @@ import { NodesService } from '../models/nodes.service';
 export class RequestListComponent implements OnInit {
   requests:any
   p: number = 1;
+  id:any
 
   constructor(private NodesService : NodesService) { }
 
@@ -28,7 +29,7 @@ export class RequestListComponent implements OnInit {
     this.NodesService.approveRequest(id._id).subscribe(res => {
       this.requests = res
       console.log(this.requests)
-      this.getRequestList()
+      window.location.reload()
     })
   }
 
@@ -38,6 +39,11 @@ export class RequestListComponent implements OnInit {
       console.log(this.requests)
       this.getRequestList()
     })
+  }
+
+  delete(){
+    this.NodesService.deleteRequest(this.id).subscribe()
+    window.location.reload()
   }
 
 }

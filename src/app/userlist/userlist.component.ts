@@ -9,6 +9,7 @@ import { UsersService } from '../models/users.service';
 export class UserlistComponent implements OnInit {
   user:any
   p: number = 1;
+  id:any
 
   constructor(private UsersService:UsersService) { }
 
@@ -21,6 +22,12 @@ export class UserlistComponent implements OnInit {
       console.log(res)
       this.user = res
     } )
+  }
+
+  delete(){
+    console.log(this.id)
+    this.UsersService.deleteUser(this.id).subscribe()
+    window.location.href=`/userList`
   }
 
 }

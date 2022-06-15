@@ -1,6 +1,6 @@
 <div class="container pt-3"  style="display: flex;">
-    <div style="width: 80%;"> 
-        <h1 class="custom-h3-mobile mb-0 pt-3" style="color: #ff7900;">Account</h1>
+    <div style="width: 80%;margin-left: 5%;"> 
+        <h1 class="mb-0 pt-3" style="color: #ff7900;">Edit User</h1>
 
         <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert" *ngIf="currDiv == 'nice'">
             <span class="alert-icon"><span class="visually-hidden">Failed</span></span>
@@ -37,46 +37,44 @@
                     #email="ngModel" required>
             </div>
 
-            <div class="pt-4">
-                <label for="node" class="form-label">Nodes</label>
-                <input type="text" class="form-control" id="node" aria-describedby="nodeHelp"
-                [(ngModel)]="user.node" name="node"
-                    #node="ngModel" required>
-            </div>
+            <div class="pt-4" style="display:flex">
+                <!-- <label for="active" class="form-label">Account : &nbsp;</label> -->
+                <label for="active" class="form-label" *ngIf="user.active == 'active'" style="color:green;width:80px;padding-top:8px"> Active</label>
+                <label for="active" class="form-label" *ngIf="user.active == 'inactive'" style="color:red;width:80px;padding-top:8px"> Inactive</label>
+   
+                <div class="form-check form-switch">
+                    <a (click)="toggelActive()">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked
+                    *ngIf="user.active == 'active';else checked"></a>
 
-            <div class="pt-4">
-                <label for="active" class="form-label">Account : &nbsp;</label>
-                <label for="active" class="form-label" *ngIf="user.active == 'active'" style="color:green"> Active</label>
-                <label for="active" class="form-label" *ngIf="user.active == 'inactive'" style="color:red"> Inactive</label>
+                    <ng-template #checked>
+                        <a (click)="toggelActive()">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" ></a>
+                    </ng-template>
+                </div>
             </div>
+            
         </form>
+
+        <button type="button" style="width:50%;margin-left:25%" class="btn btn-primary mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Edit Account</button>
     </div>
-
-    <!-- buttons section -->
-    <div class="pt-5" style="width: 20%;padding-left: 50px;">
-        <button type="button" style="width:200px" class="btn btn-primary mb-3" (click)="edit('nice',user)">Edit Account</button>
-        <button type="button" style="width:200px" class="btn btn-secondary mb-3" (click)="toggelActive()">Activate / Deactivate</button>
-        <button type="button" style="width:200px" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete Account</button><br>
-    </div>
+</div>  
 
 
-    <!-- Delete Modal -->
-  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<!-- Edit Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel">Delete Profile</h5>
+          <h2 class="modal-title" id="deleteModalLabel">Edit User</h2>
           <button type="button" class="btn-close" data-bs-dismiss="modal"><span class="visually-hidden">Close</span></button>
         </div>
         <div class="modal-body">
-          Are you sure you want delete this profile ?
+          Are you sure you want edit this user ?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
+          <button type="button" class="btn btn-primary"  (click)="edit('nice',user)">Confirm</button>
         </div>
       </div>
     </div>
   </div>
-
-
-</div>  

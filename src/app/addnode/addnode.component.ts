@@ -20,7 +20,9 @@ export class AddnodeComponent implements OnInit {
   }
 
   createNode(divVal: string,node : Nodes){
-    this.NodesService.createNode(node).subscribe((data : any) =>{
+    var currentUser = JSON.parse(localStorage.getItem('user') || '{}');
+    var token = currentUser.token; // your token
+    this.NodesService.createNode(node,token).subscribe((data : any) =>{
       node = data;
       console.log(data)
       console.log(data.code)  

@@ -7,17 +7,16 @@
             <img *ngIf="u.accept == 'no'" src="../../assets/noman.jpg" style="height: 200px;">
             <img *ngIf="u.accept == 'pending'" src="../../assets/pendingman.jpg" style="height: 200px;">
             <div class="card-inner"><h2>{{u.title}}</h2>
-            <p>{{u.username}} <br> 
-                {{u.email}}</p>
-            
-            <p><b>Mac address : : </b> {{u.MAC}} <br>
-               <b>location </b>{{u.location}} <br>
+              <p><b>User : </b>{{u.user.username}}</p>
+              <p><b>Mac address : </b> {{u.MAC}} <br>
+               <b>location :</b> {{u.location}} <br>
                <b>( </b>{{u.lat}} <b>;</b> {{u.long}} <b>)</b>
             </p>
             <p style="max-height:80px;height:80px;overflow: auto;"><b>Description : </b> {{u.desc}}</p>
             
-                <a class="btn" style="background-color: green;" (click)="approveRequest(u)">Yes</a>
-                <a class="btn" style="margin-left: 20px;" (click)="denyRequest(u)">No</a></div>
+            
+                <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AcceptModal" (click)="this.id=u">Accept</a>
+                <a class="btn btn-danger" style="margin-left: 20px;" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="this.id=u._id">Deny</a></div>
 
                 <!-- <div>
                     <div class="yes-no-radio-container">
@@ -39,3 +38,39 @@
     </div>
     <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
 </div>   
+
+  <!-- Deny Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="deleteModalLabel">Deny Request</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"><span class="visually-hidden">Close</span></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want deny this request ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="delete()">Deny</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accept Modal -->
+  <div class="modal fade" id="AcceptModal" tabindex="-1" aria-labelledby="AcceptModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="AcceptModalLabel">Accept Request</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"><span class="visually-hidden">Close</span></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want Accept this request ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="approveRequest(this.id)">Accept</button>
+        </div>
+      </div>
+    </div>
+  </div>

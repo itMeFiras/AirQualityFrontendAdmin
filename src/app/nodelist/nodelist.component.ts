@@ -10,6 +10,7 @@ import { NodesService } from '../models/nodes.service';
 export class NodelistComponent implements OnInit {
   pins: any 
   p: number = 1;
+  id:any
 
   constructor(private NodesService : NodesService) { }
 
@@ -23,4 +24,8 @@ export class NodelistComponent implements OnInit {
     } )
   }
 
+  delete(){
+    this.NodesService.deleteNode(this.id).subscribe()
+    window.location.href=`/nodeList`
+  }
 }

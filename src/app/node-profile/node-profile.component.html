@@ -1,6 +1,6 @@
 <div class="container pt-3"  style="display: flex;">
-    <div style="width: 80%;"> 
-        <h3 class="custom-h3-mobile mb-0 pt-3" style="color: #ff7900;">Node</h3>
+    <div style="width: 60%;"> 
+        <h1 class="custom-h3-mobile mb-0 pt-3" style="color: #ff7900;">Edit Node</h1>
 
         <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert" *ngIf="currDiv == 'nice'">
             <span class="alert-icon"><span class="visually-hidden">Failed</span></span>
@@ -10,14 +10,15 @@
 
         <form #userForm="ngForm">
             <div class="pt-4">
-            <label for="username" class="form-label">Username</label>
+              <h2>This node was made and managed by "{{node.user.username}}"</h2>
+            <!-- <label for="username" class="form-label">Username </label>
             <input type="text" class="form-control" id="username" aria-describedby="nameHelp"
-            [(ngModel)]="node.username" name="username"
-                #username="ngModel" required>
+            [(ngModel)]="node.user.username" name="username"
+                #username="ngModel" required> -->
             </div>
 
             <div class="pt-4">
-                <label for="MAC" class="form-label">MAC</label>
+                <label for="MAC" class="form-label">MAC address</label>
                 <input type="text" class="form-control" id="MAC" aria-describedby="MACHelp"
                 [(ngModel)]="node.MAC" name="MAC"
                     #MAC="ngModel" required>
@@ -37,53 +38,57 @@
                     #desc="ngModel" required>
             </div>
 
-            <div class="pt-4">
-                <label for="lat" class="form-label">Lat</label>
-                <input type="text" class="form-control" id="lat" aria-describedby="latHelp"
-                [(ngModel)]="node.lat" name="lat"
-                    #lat="ngModel" required>
+            <div class="pt-4" style="display:flex">
+              <div class="pt-4" style="width: 50%;">
+                  <label for="lat" class="form-label">Lat</label>
+                  <input type="text" class="form-control" id="lat" aria-describedby="latHelp"
+                  [(ngModel)]="node.lat" name="lat"
+                      #lat="ngModel" required>
+              </div>
+
+              <div class="pt-4" style="width: 50%;">
+                  <label for="long" class="form-label">Long</label>
+                  <input type="text" class="form-control" id="long" aria-describedby="longHelp"
+                  [(ngModel)]="node.long" name="long"
+                      #long="ngModel" required>
+              </div>
             </div>
 
-            <div class="pt-4">
-                <label for="long" class="form-label">Long</label>
-                <input type="text" class="form-control" id="long" aria-describedby="longHelp"
-                [(ngModel)]="node.long" name="long"
-                    #long="ngModel" required>
-            </div>
+            <div class="pt-4" style="display:flex">
+                  <label for="active" class="form-label" style="padding-top:8px">Show on the map : &nbsp;</label>
 
-            <div class="pt-4">
-                <label for="active" class="form-label">Show on the map : &nbsp;</label>
-                <label for="active" class="form-label" *ngIf="node.active == 'active'" style="color:green"> Yes</label>
-                <label for="active" class="form-label" *ngIf="node.active == 'inactive'" style="color:red"> No</label>
-            </div>
+              <div class="form-check form-switch">
+                  <a (click)="toggelActive()">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked
+                  *ngIf="node.active == 'active';else checked"></a>
+
+                  <ng-template #checked>
+                      <a (click)="toggelActive()">
+                      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" ></a>
+                  </ng-template>
+              </div>
+          </div>
         </form>
+        <button type="button" style="width:50%;margin-left: 25%;" class="btn btn-primary mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Edit Node</button>
+
     </div>
-
-    <!-- buttons section -->
-    <div class="pt-5" style="width: 20%;padding-left: 50px;">
-        <button type="button" style="width:200px" class="btn btn-primary mb-3" (click)="edit('nice',node)">Edit Node</button>
-        <button type="button" style="width:200px" class="btn btn-secondary mb-3" (click)="toggelActive()">Activate / Deactivate</button>
-        <button type="button" style="width:200px" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete Node</button><br>
-    </div>
+</div>  
 
 
-    <!-- Delete Modal -->
-  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel">Delete Profile</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"><span class="visually-hidden">Close</span></button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want delete this node ?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="delete()">Delete</button>
-        </div>
+<!-- Edit Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="deleteModalLabel">Edit Node</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"><span class="visually-hidden">Close</span></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want edit this node ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  (click)="edit('nice',node)">Confirm</button>
       </div>
     </div>
   </div>
-
-
-</div>  
+</div>

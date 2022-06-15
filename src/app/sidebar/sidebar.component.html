@@ -5,11 +5,30 @@
         <img src="../../../assets/trylogo.png " role="img" alt="logo" loading="lazy" style="margin-left: 60px; width:60px;height:50px;">
 
         <ul class="mt-5">
-            <li><a href="#"><i class="fas fa-home"></i>Dashboard</a></li>
-            <li><a routerLink="/nodeList"><i class="fas fa-user"></i>Nodes List</a></li>
-            <li><a routerLink="/userList"><i class="fas fa-address-card"></i>Users List</a></li>
-            <li><a routerLink="/requestList"><i class="fas fa-project-diagram"></i>Node Requests</a></li>
-            <li><a href="#"><i class="fas fa-blog"></i>Forms</a></li>
+            <li style="background-color: #ff7900;" *ngIf="url == 'Dashboard';else Dashboard">
+                <a href="#" style="color: black;font-weight: bold;">Dashboard</a></li>
+            <ng-template #Dashboard>
+                <li><a href="#"  (click)="clicked('Dashboard')" >Dashboard</a></li>
+            </ng-template>
+
+            <li style="background-color: #ff7900;" *ngIf="url == 'Nodes List';else Nodes">
+                <a routerLink="/nodeList" style="color: black;font-weight: bold;" >Nodes List</a></li>
+            <ng-template #Nodes>
+                <li><a routerLink="/nodeList"  (click)="clicked('Nodes List')">Nodes List</a></li>
+            </ng-template>
+
+            <li style="background-color: #ff7900;" *ngIf="url == 'Users List';else Users">
+                <a routerLink="/userList" style="color: black;font-weight: bold;" >Users List</a></li>
+            <ng-template #Users>
+                <li><a routerLink="/userList" (click)="clicked('Users List')">Users List</a></li>
+            </ng-template>
+
+            <li style="background-color: #ff7900;" *ngIf="url == 'Node Requests';else Requests">
+                <a routerLink="/requestList" style="color: black;font-weight: bold;" >Node Requests</a></li>
+            <ng-template #Requests>
+                <li><a routerLink="/requestList" (click)="clicked('Node Requests')">Node Requests</a></li>
+            </ng-template>
+            <li><a href="#">Forms</a></li>
         </ul> 
         <!-- <div class="social_media">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
