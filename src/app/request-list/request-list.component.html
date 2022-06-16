@@ -10,28 +10,12 @@
               <p><b>User : </b>{{u.user.username}}</p>
               <p><b>Mac address : </b> {{u.MAC}} <br>
                <b>location :</b> {{u.location}} <br>
-               <b>( </b>{{u.lat}} <b>;</b> {{u.long}} <b>)</b>
+               <b>( </b>{{u.lat.slice(0,10)}} <b>;</b> {{u.long.slice(0,10)}} <b>)</b>
             </p>
             <p style="max-height:80px;height:80px;overflow: auto;"><b>Description : </b> {{u.desc}}</p>
             
-            
                 <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AcceptModal" (click)="this.id=u">Accept</a>
                 <a class="btn btn-danger" style="margin-left: 20px;" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="this.id=u._id">Deny</a></div>
-
-                <!-- <div>
-                    <div class="yes-no-radio-container">
-                      <div class="radio-btns">
-                        <span class="radio-btns-option">
-                          <input type="radio" name={{u._id}} value="yes" id="radio-yes"><label class="radio-label" for="radio-yes">Yes</label>
-                        </span>
-                        <span class="radio-btns-option">
-                          <input type="radio" name={{u._id}} value="no" id="radio-no"><label class="radio-label" for="radio-no" >No</label>
-                        </span>
-                      </div>
-                    </div>
-                    
-                  </div> -->
-
 
             </div>
         </div>

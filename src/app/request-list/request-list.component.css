@@ -39,25 +39,6 @@ body {
 .carousel-cell h2 {
   margin: 0;
 }
-/* .btn {
-  display: inline-block;
-  width: 100px;
-  padding: 8px 20px;
-  background: red;
-  color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 5px 15px rgba(0,0,0,.05), 0 4px 10px rgba(90,97,105,.25);
-}
-
-.btn .clicked{
-  display: inline-block;
-  width: 100px;
-  padding: 8px 20px;
-  background: red;
-  color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 5px 15px rgba(0,0,0,.05), 0 4px 10px rgba(90,97,105,.25);
-} */
 
 .flickity-prev-next-button {
   transition: 0.2s ease;
@@ -81,47 +62,4 @@ body {
 }
 .flickity-page-dots .dot.is-selected {
   box-shadow: 0 0 0 2px #000;
-}
-
-
-/*RADIO BUTTONS CSS*/
-.radio-btns-option {
-  display: inline-block;
-  /*float: left;*/
-  margin: 0;
-  padding: 0;
-  font-size: 1em;
-}
-input[type="radio"] {
-  position: absolute;
-  left: -9000px;
-}
-
-input[type="radio"]:checked + .radio-label {
-  background: #45a5ff;
-  color: #fff;
-}
-
-.radio-label {
-  display: inline-block;
-  border: 2px solid #45a5ff;
-  border-right: none;
-  padding: 8px 30px;
-  margin: 0;
-  cursor: pointer;
-}
-
-.radio-label:hover {
-  background: #45a5ff;
-  color: #fff;
-}
-.radio-btns-option:first-of-type .radio-label {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-.radio-btns-option:nth-of-type(2n) .radio-label {
-  border-right: 2px solid #45a5ff;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
 }

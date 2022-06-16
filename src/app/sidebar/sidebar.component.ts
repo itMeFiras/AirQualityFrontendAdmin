@@ -11,7 +11,7 @@ export class SidebarComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  url:string = "Dashboard"
+  url:string = ""
   ngOnInit(): void {
     console.log("this.router.url");
     console.log(this.router.url);
