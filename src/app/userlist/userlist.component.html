@@ -1,6 +1,6 @@
-<div class="container">
-  <h1 class="mt-5 mb-5" style="color:#ff7900;">Users List</h1>
-  <div style="padding-left:5%;padding-right: 5%;">
+<div class="container" style="padding-left:5%;padding-right: 5%;">
+  <h1 class="mt-5 mb-5" style="color:#ff7900;font-weight: bold;">Users List</h1>
+  <div>
       <table class="table">
           <thead>
             <tr>
@@ -11,10 +11,10 @@
           </thead>
           <tbody>
             <tr *ngFor="let u of user | paginate: { itemsPerPage: 10, currentPage: p }">
-              <th scope="row">{{u.username}}</th>
-              <td>{{u.active}}</td>
-              <td>
-                <a style="color: blue;cursor: pointer;padding-left:10px" routerLink="/userProfile/{{u._id}}">
+              <th scope="row" *ngIf="u.role!='admin'">{{u.username}}</th>
+              <td *ngIf="u.role!='admin'">{{u.active}}</td>
+              <td *ngIf="u.role!='admin'">
+                <a style="cursor: pointer;padding-left:10px" routerLink="/userList/{{u._id}}">
                   <svg id="Functional_UI_ic_File_draft_edit" data-name="Functional_UI / ic_File_draft_edit" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <rect id="Box" width="24" height="24" fill="#fff" opacity="0"/>
                     <path id="Shape" d="M16.061,6.6H19.8L15,1.8V5.4A1.135,1.135,0,0,0,16.061,6.6Zm6.6,5.783a.9.9,0,0,0-.265-.608l-1.033-1.033-.424-.424-.424.424-.711.706V7.8H16.194A2.4,2.4,0,0,1,13.8,5.4V1.8H4.2V20.995h0s0,0,0,.005a1.2,1.2,0,0,0,1.2,1.2H19.8V15.624l2.582-2.582.027-.027a.87.87,0,0,0,.247-.632ZM9.481,13.628c-.2-.309-.535-1.421-.615-1.418a.086.086,0,0,0-.065.04c-.017.023-1.9,3.1-1.963,3.146l-.724-.843c.568-.769,1.881-2.859,2.017-2.995,1.421-1.421,1.881,1.088,2,1.335a39.515,39.515,0,0,1,2.144-3.826c.289,0,1.542,1.783,2.009,2.336a1.935,1.935,0,0,0,1.174.671c1.029,0,2.91-2.392,2.91-2.392-.387.723-1.491,3.16-3.03,3.332A1.653,1.653,0,0,1,14,12.545c-.888-.712-1.38-2.031-1.621-2.031-.052,0-.06.03-.077.053s-1.081,2.8-1.222,3A.93.93,0,0,1,9.481,13.628Zm11.151.312-.011.011-6.189,6.192L11.8,21.5l1.394-2.6,6.383-6.379,1.042,1.015a.3.3,0,0,1,.089.2.264.264,0,0,1-.077.2ZM21.979,12.6l-.011.01-.729.729L20,12.1l.933-.933L21.967,12.2a.279.279,0,0,1,.012.4Z" fill-rule="evenodd"/>
@@ -27,25 +27,14 @@
                     <path id="Shape" d="M19.653-7.746a1.2,1.2,0,0,1,0,1.7l-1.7,1.7a1.2,1.2,0,0,1-1.7,0L12.005-8.6,7.756-4.347a1.2,1.2,0,0,1-1.7,0l-1.7-1.7a1.2,1.2,0,0,1,0-1.7l4.249-4.249L4.357-16.244a1.2,1.2,0,0,1,0-1.7l1.7-1.7a1.2,1.2,0,0,1,1.7,0l4.249,4.249,4.249-4.249a1.2,1.2,0,0,1,1.7,0l1.7,1.7a1.2,1.2,0,0,1,0,1.7L15.4-11.995Z" transform="translate(-0.005 23.995)" fill-rule="evenodd"/>
                   </svg>
                 </a>
-                
-                <!-- <a style="color: blue;cursor: pointer;padding-left:10px" routerLink="/userProfile/{{u._id}}">
-                  <svg id="Functional_UI_ic_Task_list" data-name="Functional_UI / ic_Task_list" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <rect id="Box" width="24" height="24" fill="#fff" opacity="0"/>
-                    <path id="Shape" d="M15,2.4H13.7a1.8,1.8,0,0,0-3.394,0H9a.6.6,0,0,0-.6.6V5.4h7.2V3A.6.6,0,0,0,15,2.4ZM12,3.6a.6.6,0,1,1,.6-.6A.6.6,0,0,1,12,3.6Zm6.6,0H16.2V6H7.8V3.6H5.4A1.2,1.2,0,0,0,4.2,4.8V21a1.2,1.2,0,0,0,1.2,1.2H18.6A1.2,1.2,0,0,0,19.8,21V4.8A1.2,1.2,0,0,0,18.6,3.6ZM13.2,19.2h-6a.6.6,0,0,1,0-1.2h6a.6.6,0,0,1,0,1.2Zm0-3h-6a.6.6,0,0,1,0-1.2h6a.6.6,0,0,1,0,1.2Zm0-3h-6a.6.6,0,1,1,0-1.2h6a.6.6,0,1,1,0,1.2Zm0-3h-6A.6.6,0,1,1,7.2,9h6a.6.6,0,1,1,0,1.2Zm3,9H15V18h1.2Zm0-3H15V15h1.2Zm1.743-4.41-1.655,1.92h0a.271.271,0,0,1-.4,0h0l-.828-.96h0A.229.229,0,0,1,15,12.6a.231.231,0,0,1,.076-.17l.1-.1a.273.273,0,0,1,.351-.012h0l.5.518,1.53-1.375h0a.269.269,0,0,1,.177-.065.25.25,0,0,1,.259.24.229.229,0,0,1-.057.15h0Zm0-3h0l-1.655,1.92h0a.271.271,0,0,1-.4,0h0l-.828-.96h0A.229.229,0,0,1,15,9.6a.231.231,0,0,1,.076-.17l.1-.1a.273.273,0,0,1,.351-.012h0l.5.518,1.53-1.375h0a.269.269,0,0,1,.177-.065A.25.25,0,0,1,18,8.64a.229.229,0,0,1-.057.15Z" fill-rule="evenodd"/>
-                  </svg>
-                </a> -->
-                  
-                </td>
+              </td>
             </tr>
           </tbody>
         </table>
-        <pagination-controls (pageChange)="p = $event"
-        style="text-align: right;" 
-                              class="my-pagination"></pagination-controls>
+        <pagination-controls (pageChange)="p = $event" style="text-align: right;" class="my-pagination"></pagination-controls>
     </div>
 
 </div>
-
 
 
 <!-- Delete Modal -->

@@ -7,6 +7,7 @@ import { UsersService } from '../models/users.service';
   styleUrls: ['./userlist.component.css']
 })
 export class UserlistComponent implements OnInit {
+  list:any
   user:any
   p: number = 1;
   id:any
@@ -19,7 +20,6 @@ export class UserlistComponent implements OnInit {
 
   getUserList(){
     this.UsersService.getUserList().subscribe(res => {
-      console.log(res)
       this.user = res
     } )
   }

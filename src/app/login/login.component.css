@@ -1,0 +1,44 @@
+ .logo{
+    margin-left: 10%; 
+    width:80%;
+    height:50px;
+ } 
+
+ .alert{
+    color: white;
+    text-align: center;
+    margin-left: 5%; 
+    width:90%;
+    border: solid red;
+ }
+
+ .form-control{
+    margin-left: 5%; 
+    width:90%;
+ }
+
+ .btn{
+    margin-left: 5%; 
+    width:90%;
+    color: white;
+    border: solid;
+ }
+
+ .btn:hover{
+    background-color: white;
+    color: black;
+ }
+
+  .wrapper{
+    display: flex;
+    position: relative;
+  }
+  
+  .wrapper .sidebar{
+    width: 15%;
+    height: 100%;
+    min-width: 200px;
+    background: black;
+    padding: 30px 0px;
+    position: fixed;
+  }

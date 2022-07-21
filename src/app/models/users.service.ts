@@ -23,12 +23,6 @@ export class UsersService {
 
   constructor(private HttpClient: HttpClient) { }
 
-
-  gettry(email: string) {
-    return this.HttpClient.get<any[]>(`https://jsonplaceholder.typicode.com/users?email=${email}`);
-  }
-
-
   //auth services
   register(data:any ) : Observable<Users>{
     let a = this.HttpClient.post<Users>(this.url+'/register',data)

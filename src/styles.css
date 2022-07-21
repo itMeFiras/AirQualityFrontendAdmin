@@ -1,8 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "Helvetica Neue";
+    src: local("Helvetica Neue"), url(./assets/fonts/HelvNeue35_W1G.ttf) format("truetype");
+    src: local("Helvetica Neue"), url(./assets/fonts/HelvNeue45_W1G.ttf) format("truetype");
+    src: local("Helvetica Neue"), url(./assets/fonts/HelvNeue55_W1G.ttf) format("truetype");
+    src: local("Helvetica Neue"), url(./assets/fonts/HelvNeue65_W1G.ttf) format("truetype");
+    src: local("Helvetica Neue"), url(./assets/fonts/HelvNeue75_W1G.ttf) format("truetype");
+  }
 
-/* html, body {
-    height: 100%;
-    margin : 0
-}     */
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Helvetica Neue', sans-serif;background-color: #f6f6f6; }

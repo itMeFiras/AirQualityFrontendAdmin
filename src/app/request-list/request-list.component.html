@@ -1,11 +1,12 @@
 <div class="container" >
-    <h1 class="mt-5 mb-3" style="color:#ff7900;">Request List</h1>
+    <h1 class="mt-5 mb-3" style="color:#ff7900;font-weight: bold;margin-left: 5%;">Request List</h1>
+    <div *ngIf="requests[0]==null">
+      <label style="margin-left: 5%;">You have no requests</label>
+    </div>
     <div class="main-carousel" style="display: flex;"> 
         <div *ngFor="let u of requests | paginate: { itemsPerPage: 4, currentPage: p }">
             <div class="carousel-cell">
-            <img *ngIf="u.accept == 'yes'" src="../../assets/yesman.jpg" style="height: 200px;">
-            <img *ngIf="u.accept == 'no'" src="../../assets/noman.jpg" style="height: 200px;">
-            <img *ngIf="u.accept == 'pending'" src="../../assets/pendingman.jpg" style="height: 200px;">
+            <img src="../../assets/request.jpg" style="height: 150px;">
             <div class="card-inner"><h2>{{u.title}}</h2>
               <p><b>User : </b>{{u.user.username}}</p>
               <p><b>Mac address : </b> {{u.MAC}} <br>
@@ -20,7 +21,7 @@
             </div>
         </div>
     </div>
-    <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+    <pagination-controls (pageChange)="p = $event" class="my-pagination" *ngIf="requests[0]!=null"></pagination-controls>
 </div>   
 
   <!-- Deny Modal -->

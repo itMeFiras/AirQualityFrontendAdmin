@@ -20,14 +20,12 @@ export class RequestListComponent implements OnInit {
   getRequestList(){
     this.NodesService.getRequestList().subscribe(res => {
       this.requests = res
-      console.log(this.requests)
     } )
   }
 
   approveRequest(id:any){
     this.NodesService.approveRequest(id._id).subscribe(res => {
       this.requests = res
-      console.log(this.requests)
       window.location.reload()
     })
   }
@@ -35,7 +33,6 @@ export class RequestListComponent implements OnInit {
   denyRequest(id:any){
     this.NodesService.denyRequest(id._id).subscribe(res => {
       this.requests = res
-      console.log(this.requests)
       this.getRequestList()
     })
   }

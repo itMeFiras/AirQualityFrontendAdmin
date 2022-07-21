@@ -1,13 +1,14 @@
-<div class="container">
-    <h1 class="mt-5 mb-2" style="color:#ff7900;">Nodes List</h1>
-    <button class="mt-3 mb-3 btn btn-success" routerLink="/createNode"><span>Create a new Node </span></button>
-    <div style="padding-left:5%;padding-right: 5%;">
+<div class="container" style="padding-left:5%;padding-right: 5%;">
+    <h1 class="mt-5 mb-2" style="color:#ff7900;font-weight: bold;">Nodes List</h1>
+    <button class="mt-3 mb-3 btn btn-primary" routerLink="/nodeList/createNode"><span>Create a new Node </span></button>
+    <div>
       <table class="table">
           <thead>
             <tr>
               <th scope="col">MAC</th>
               <th scope="col">Title</th>
               <th scope="col">Displayed On the map</th>
+              <th scope="col">Operate</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -17,8 +18,9 @@
               <td>{{u.title}}</td>
               <td *ngIf="u.active == 'active'">Yes</td>
               <td *ngIf="u.active == 'inactive'">No</td>
+              <td>{{u.operate}}</td>
               <td>
-                <a style="color: blue;cursor: pointer;padding-left:10px" routerLink="/nodeProfile/{{u._id}}">
+                <a style="color: blue;cursor: pointer;padding-left:10px" routerLink="/nodeList/nodeProfile/{{u._id}}">
                   <svg id="Functional_UI_ic_File_draft_edit" data-name="Functional_UI / ic_File_draft_edit" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <rect id="Box" width="24" height="24" fill="#fff" opacity="0"/>
                     <path id="Shape" d="M16.061,6.6H19.8L15,1.8V5.4A1.135,1.135,0,0,0,16.061,6.6Zm6.6,5.783a.9.9,0,0,0-.265-.608l-1.033-1.033-.424-.424-.424.424-.711.706V7.8H16.194A2.4,2.4,0,0,1,13.8,5.4V1.8H4.2V20.995h0s0,0,0,.005a1.2,1.2,0,0,0,1.2,1.2H19.8V15.624l2.582-2.582.027-.027a.87.87,0,0,0,.247-.632ZM9.481,13.628c-.2-.309-.535-1.421-.615-1.418a.086.086,0,0,0-.065.04c-.017.023-1.9,3.1-1.963,3.146l-.724-.843c.568-.769,1.881-2.859,2.017-2.995,1.421-1.421,1.881,1.088,2,1.335a39.515,39.515,0,0,1,2.144-3.826c.289,0,1.542,1.783,2.009,2.336a1.935,1.935,0,0,0,1.174.671c1.029,0,2.91-2.392,2.91-2.392-.387.723-1.491,3.16-3.03,3.332A1.653,1.653,0,0,1,14,12.545c-.888-.712-1.38-2.031-1.621-2.031-.052,0-.06.03-.077.053s-1.081,2.8-1.222,3A.93.93,0,0,1,9.481,13.628Zm11.151.312-.011.011-6.189,6.192L11.8,21.5l1.394-2.6,6.383-6.379,1.042,1.015a.3.3,0,0,1,.089.2.264.264,0,0,1-.077.2ZM21.979,12.6l-.011.01-.729.729L20,12.1l.933-.933L21.967,12.2a.279.279,0,0,1,.012.4Z" fill-rule="evenodd"/>

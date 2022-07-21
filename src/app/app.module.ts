@@ -16,16 +16,18 @@ import { NodelistComponent } from './nodelist/nodelist.component';
 import { NodeProfileComponent } from './node-profile/node-profile.component';
 import { AddnodeComponent } from './addnode/addnode.component';
 import { RequestListComponent } from './request-list/request-list.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const appRoutes : Routes = [
+  {path : "dashboard" , component:DashboardComponent},
   {path : "userList" , component:UserlistComponent},
-  {path : "userProfile/:id" , component:UserprofileComponent},
+  {path : "userList/:id" , component:UserprofileComponent},
   {path : "nodeList" , component:NodelistComponent},
-  {path : "nodeProfile/:id" , component:NodeProfileComponent},
-  {path : "createNode" , component:AddnodeComponent},
+  {path : "nodeList/nodeProfile/:id" , component:NodeProfileComponent},
+  {path : "nodeList/createNode" , component:AddnodeComponent},
   {path : "requestList" , component:RequestListComponent},
-
-
+  {path : "**" , redirectTo:"dashboard"},
 
 ]
 
@@ -38,7 +40,9 @@ const appRoutes : Routes = [
     NodelistComponent,
     NodeProfileComponent,
     AddnodeComponent,
-    RequestListComponent
+    RequestListComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

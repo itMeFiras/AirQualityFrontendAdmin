@@ -1,6 +1,6 @@
-<div class="container pt-3"  style="display: flex;">
+<div class="container pt-3"  style="display: flex;padding-left:5%;padding-right: 5%;">
     <div style="width: 50%;"> 
-        <h1 class="custom-h3-mobile mb-0 pt-3" style="color: #ff7900;">Create a new Node</h1>
+        <h1 class="custom-h3-mobile mb-0 pt-3" style="color: #ff7900;font-weight: bold;">Create a new Node</h1>
 
         <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert" *ngIf="currDiv == 'nice'">
             <span class="alert-icon"><span class="visually-hidden">Failed</span></span>
@@ -66,7 +66,7 @@
 
 
     <!-- map section -->
-    <div style="width:45%;margin-left: 1%;margin-top: 6%;">
+    <div style="width:50%;margin-left: 1%;margin-top: 6%;">
 
         <label class="mb-1">Please select Location for the node</label>
 
@@ -81,7 +81,7 @@
             crossorigin=""></script>
         <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
       
-        <div id="map" style="height:70%"></div>
+        <div id="map" style="height:400px"></div>
       </div>
     
 

@@ -23,9 +23,17 @@ export class AppComponent {
     var token = currentUser.token;
     this.userService.getprofile(token).subscribe(res => {
     this.user = res
+
+    if (res == "you dont have access" || res == "no token sent" ){
+      this.profile = 0
+    }
+    else {
+      this.profile = 1
       if (this.user[0].role != "admin" ){
         window.location.href=`http://localhost:4200/`
       }
+    }
+      
     })
   }
 }
