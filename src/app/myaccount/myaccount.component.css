@@ -1,0 +1,49 @@
+.box{
+    margin-left: 16%;
+    margin-right: 16%;
+  }
+  
+  .nav-link{
+    height: 50px;
+    max-height: 50px;
+    text-align: left;
+  }
+  
+  .nav-tabs-light{
+    border: 0px;
+    margin-bottom: 1px;
+  }
+  
+  .nav-item .inactive{
+    background-color: #E5E5E5;
+  }
+  
+  .nav-item .aa{
+    border-top: solid #ff7900 4px;
+    border-bottom: 0px;
+    background-color: white;
+  }
+  
+  .nav-item .inactive:hover{
+    cursor: pointer;
+  }
+  
+  .nav-item .active:hover{
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .box1{
+    background-color: white;
+    padding-left: 20px;
+  }
+  
+  
+  .box1 .text1{
+    height: 50px;
+  }
+  
+  .box1 .text2{
+    margin-top: 20px;
+    color: #ff7900;
+  }

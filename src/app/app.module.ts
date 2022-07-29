@@ -18,6 +18,7 @@ import { AddnodeComponent } from './addnode/addnode.component';
 import { RequestListComponent } from './request-list/request-list.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MyaccountComponent } from './myaccount/myaccount.component';
 
 const appRoutes : Routes = [
   {path : "dashboard" , component:DashboardComponent},
@@ -27,6 +28,7 @@ const appRoutes : Routes = [
   {path : "nodeList/nodeProfile/:id" , component:NodeProfileComponent},
   {path : "nodeList/createNode" , component:AddnodeComponent},
   {path : "requestList" , component:RequestListComponent},
+  {path : "myAccount" , component:MyaccountComponent},
   {path : "**" , redirectTo:"dashboard"},
 
 ]
@@ -42,7 +44,8 @@ const appRoutes : Routes = [
     AddnodeComponent,
     RequestListComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    MyaccountComponent
   ],
   imports: [
     BrowserModule,

@@ -1,34 +1,41 @@
 <div class="wrapper">
     <div class="sidebar">
         <img src="../../../assets/trylogo3.png" role="img" alt="logo" loading="lazy" class="logo mt-5">
-
-        <div class="box mt-5"> 
-            <form #userForm="ngForm" (ngSubmit)="login('nice',user)">
-                <div class="pt-3 mb-3">
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                [(ngModel)]="user.username" name="username" placeholder="Email or Username"
-                    #username="ngModel" required>
-                </div>
-
-                <div class="mb-3">
-                <input type="password" class="form-control" id="exampleInputPassword1"
-                [(ngModel)]="user.password" name="password" placeholder="Password"
-                    #password="ngModel" required>
-                </div>
-                
-                <div class="pt-1">
-                    <button type="submit" class="btn">Log in</button>
-                </div>
-            </form>
-
-            <!-- fail alert -->
-            <div class="alert mt-3" role="alert" id="alert" *ngIf="currDiv == 'nice'">
-                <p>{{alert}}</p>
-            </div>
-            <!-- end alert -->
-        </div>
+        <p style="color:white;text-align:center;font-weight: bold;" class="mt-5">
+            Welcome.
+            <br>Login to your account</p>
     </div>
     <div class="main_content">
+        <div class="box mt-5"> 
+            <div class="leftbox">
+                <h1 class="text1">Login</h1>
+                <!-- fail alert -->
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert" *ngIf="currDiv == 'nice'">
+                    <span class="alert-icon"><span class="visually-hidden">Failed</span></span><p>{{alert}}</p>
+                </div>
+                <!-- end alert -->
+    
+                <form #userForm="ngForm" (ngSubmit)="login('nice',user)">
+                    <div class="pt-3 mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email or Username</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    [(ngModel)]="user.username" name="username"
+                        #username="ngModel" required>
+                    </div>
+    
+                    <div>
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1"
+                    [(ngModel)]="user.password" name="password"
+                        #password="ngModel" required>
+                    </div>
+                        
+                    <div class="pt-1">
+                        <button type="submit" class="btn btn-primary mt-3">Log in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 

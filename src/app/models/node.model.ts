@@ -4,6 +4,7 @@ export class Nodes {
     MAC : string="";
     title : string="";
     desc : string="";
+    email : string="";
     lat : string="";
     long : string="";
     active : string="";

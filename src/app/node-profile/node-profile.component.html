@@ -1,4 +1,4 @@
-<div class="container pt-3"  style="display: flex;padding-left:5%;padding-right: 5%;">
+<div class="pt-3" style="display: flex;padding-left:5%;padding-right: 5%;">
     <div style="width: 50%;"> 
         <h1 class="custom-h3-mobile mb-0 pt-3" style="color: #ff7900;font-weight: bold;">Edit Node</h1>
 
@@ -16,36 +16,43 @@
                 #username="ngModel" required> -->
             </div>
 
-            <div class="pt-4">
+            <div class="pt-3">
                 <label for="MAC" class="form-label">MAC address</label>
                 <input type="text" class="form-control" id="MAC" aria-describedby="MACHelp"
                 [(ngModel)]="node.MAC" name="MAC"
                     #MAC="ngModel" required>
             </div>
 
-            <div class="pt-4">
+            <div class="pt-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" id="title" aria-describedby="titleHelp"
                 [(ngModel)]="node.title" name="title"
                     #title="ngModel" required>
             </div>
 
-            <div class="pt-4">
+            <div class="pt-3">
                 <label for="desc" class="form-label">Description</label>
-                <input type="text" class="form-control" id="desc" aria-describedby="descHelp"
+                <textarea type="text" class="form-control" id="desc" aria-describedby="descHelp"
                 [(ngModel)]="node.desc" name="desc"
-                    #desc="ngModel" required>
+                    #desc="ngModel" required></textarea>
             </div>
 
-            <div class="pt-4" style="display:flex">
-              <div class="pt-4" style="width: 45%;">
+            <div class="pt-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="text" class="form-control" id="email" aria-describedby="emailHelp"
+              [(ngModel)]="node.email" name="email"
+                  #email="ngModel" required>
+            </div>
+
+            <div style="display:flex">
+              <div class="pt-3" style="width: 45%;">
                   <label for="lat" class="form-label">Lat</label>
                   <input type="text" class="form-control" id="lat" aria-describedby="latHelp"
                   [(ngModel)]="node.lat" name="lat"
                       #lat="ngModel" required>
               </div>
 
-              <div class="pt-4" style="width: 45%;margin-left:10%">
+              <div class="pt-3" style="width: 45%;margin-left:10%">
                   <label for="long" class="form-label">Long</label>
                   <input type="text" class="form-control" id="long" aria-describedby="longHelp"
                   [(ngModel)]="node.long" name="long"
@@ -53,7 +60,7 @@
               </div>
             </div>
 
-            <div class="pt-4" style="display:flex">
+            <div class="pt-3" style="display:flex">
                   <label for="active" class="form-label" style="padding-top:8px">Show on the map : &nbsp;</label>
 
               <div class="form-check form-switch">

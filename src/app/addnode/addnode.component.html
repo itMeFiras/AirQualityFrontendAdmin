@@ -1,4 +1,4 @@
-<div class="container pt-3"  style="display: flex;padding-left:5%;padding-right: 5%;">
+<div class="pt-3"  style="display: flex;padding-left:5%;padding-right: 5%;">
     <div style="width: 50%;"> 
         <h1 class="custom-h3-mobile mb-0 pt-3" style="color: #ff7900;font-weight: bold;">Create a new Node</h1>
 
@@ -14,7 +14,7 @@
                 [(ngModel)]="node.MAC" name="MAC" placeholder="Node ID/MAC"
                     #MAC="ngModel" required minlength="3">
                     <div  style="color: red" *ngIf="MAC.invalid && MAC.touched">
-                        Required & min 3 chars 
+                        Minimum of 3 characters
                     </div>
             </div>
 
@@ -24,7 +24,7 @@
                 [(ngModel)]="node.title" name="title" placeholder="Node name to display on the map"
                     #title="ngModel" required minlength="3">
                     <div  style="color: red" *ngIf="title.invalid && title.touched">
-                        Required & min 3 chars 
+                        Minimum of 3 characters
                     </div>
             </div>
 
@@ -34,7 +34,17 @@
                 [(ngModel)]="node.desc" name="desc" placeholder="Node description to display on the map"
                     #desc="ngModel" required minlength="10"></textarea>
                     <div  style="color: red" *ngIf="desc.invalid && desc.touched">
-                      Required & min 10 chars 
+                        Minimum of 10 characters
+                  </div>
+            </div>
+
+            <div class="pt-4">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" aria-describedby="emailHelp"
+                [(ngModel)]="node.email" name="email" placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$"
+                    #email="ngModel" required minlength="10">
+                    <div  style="color: red" *ngIf="email.invalid && email.touched">
+                      Invalid email
                   </div>
             </div>
 

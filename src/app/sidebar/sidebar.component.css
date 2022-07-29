@@ -17,6 +17,12 @@ body{
   height:50px;
 } 
 
+.logo2{
+  margin-left: 2px; 
+  width:50px;
+  height:50px;
+} 
+
 .logout{
   font-weight: bold;
 }
@@ -31,26 +37,24 @@ body{
 }
 
 .wrapper .sidebar{
-  width: 15%;
+  width: 220px;
   height: 100%;
-  min-width: 100px;
   background: black;
   padding: 30px 0px;
   position: fixed;
 }
 
-.wrapper .sidebar h2{
-  color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 30px;
+.wrapper .close{
+  width: 55px;
 }
+
 
 .wrapper .sidebar ul li{
   padding: 15px;
   border-bottom: 1px solid #bdb8d7;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
+  cursor: pointer;
 }    
 
 .wrapper .sidebar ul li a{
@@ -76,29 +80,14 @@ body{
 
 .wrapper .main_content{
   width: 100%;
-  margin-left: 15%;
+  margin-left: 220px;
   background-color: #f6f6f6;
 }
 
-.wrapper .main_content .header{
-  padding: 20px;
-  background: #fff;
-  color: #717171;
-  border-bottom: 1px solid #e0e4e8;
+.wrapper .main_open{
+  margin-left: 220px;
 }
 
-.wrapper .main_content .info{
-  margin: 20px;
-  color: #717171;
-  line-height: 25px;
-}
-
-.wrapper .main_content .info div{
-  margin-bottom: 20px;
-}
-
-@media only screen and (max-width: 600px){
-  .wrapper .main_content{
-    margin-left: 100px;
-  }
+.wrapper .main_close{
+  margin-left: 55px;
 }

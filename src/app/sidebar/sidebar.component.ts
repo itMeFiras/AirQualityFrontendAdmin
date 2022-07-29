@@ -18,4 +18,17 @@ export class SidebarComponent implements OnInit {
     window.location.href="/"
   }
 
+  try:string='open'
+  main:any
+  slide(){
+    if(this.try == 'open'){
+      this.try = 'close'
+      this.main = 'main_close'
+    }
+    else if(this.try == 'close'){
+      this.try = 'open'
+      this.main = 'main_open'
+    }
+  }
+
 }

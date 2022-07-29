@@ -14,6 +14,7 @@ export class NodesService {
     MAC :"",
     title : "",
     desc : "",
+    email : "",
     lat : "",
     long : "",
     active : "",
@@ -50,6 +51,10 @@ export class NodesService {
 
   toggelActive(id : any) : Observable<Nodes>{
     return this.HttpClient.post<Nodes>(this.url+'/toggelActive/'+id,"")
+  }
+
+  checknode(mac:any): Observable<any>{
+    return this.HttpClient.get('http://localhost:8800/api/node/checknode?MAC='+mac)
   }
 
   //request service
